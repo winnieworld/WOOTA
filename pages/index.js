@@ -1,12 +1,13 @@
-import React , {useEffect}from 'react';
+import React , { useEffect }from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
+import axios from 'axios';
+
 import Tabs from '../src/components/tabs';
 import {  brandState, popularState } from '../state/index';
 import { useRecoilState } from 'recoil';
 import bgImg from '../public/images/UnicornVectorGradient_8.jpg'
-import axios from 'axios';
 
 const WootaContainer = styled.div`
   background-image: url('${bgImg.src}');
@@ -22,6 +23,7 @@ const WootaContainer = styled.div`
   box-sizing: border-box;
   background-position: 50% 0;
 `;
+
 export default function Index({ children }) {
 
   const [brandName, setBrandName] = useRecoilState(brandState);
@@ -47,6 +49,7 @@ export default function Index({ children }) {
     <>
       <Head>
         <title>WooTa | 당신의 노래방 메이트</title>
+        <meta name='description' content='WooTa 홈 입니다'></meta>
       </Head>
       <WootaContainer>
         <h1>
