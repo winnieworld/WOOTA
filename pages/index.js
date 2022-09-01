@@ -5,9 +5,12 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import Tabs from '../src/components/tabs';
-import {  brandState, popularState } from '../state/index';
+import {  brandState, popularState, modalState } from '../state/index';
 import { useRecoilState } from 'recoil';
 import bgImg from '../public/images/UnicornVectorGradient_8.jpg'
+import Modal from '../src/components/modal';
+
+
 
 const WootaContainer = styled.div`
   background-image: url('${bgImg.src}');
@@ -25,8 +28,9 @@ const WootaContainer = styled.div`
 `;
 
 export default function Index({ children }) {
-
+  
   const [brandName, setBrandName] = useRecoilState(brandState);
+  const [modal, setModal] = useRecoilState(modalState);
   const [popularSongs, setPopularSongs] = useRecoilState(popularState);
   useEffect(() => {
     const fetchPopular = async (brand) => {
@@ -52,6 +56,7 @@ export default function Index({ children }) {
         <meta name='description' content='WooTa 홈 입니다'></meta>
       </Head>
       <WootaContainer>
+       {modal&& <Modal setModal={setModal}/>}
         <h1>
           <Link href={'/'}>
             <span>woota.</span>

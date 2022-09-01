@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Index from '../index';
 import axios from 'axios';
 import styled from 'styled-components';
-import { brandState } from '../../state/index';
-import { useRecoilValue } from 'recoil';
+import { brandState,modalState, SelectedState } from '../../state/index';
+import { useRecoilValue,useRecoilState } from 'recoil';
+import {selectSong} from '../../src/selectSong';
 // TODO: 검색결과 페이지로 쪼개기
 
 const ModeButton = styled.button`
@@ -30,8 +31,11 @@ export default function Search() {
   const brandName = useRecoilValue(brandState);
   const [isLoading, setLoading] = useState(null);
   const [songs, setSongs] = useState({ mode: 'title', data: [], word: '' });
+  const [modal,setModal] = useRecoilState(modalState);
+  const [selected,setSelected] = useRecoilState(SelectedState);
 
   useEffect(() => {
+
     if (!songs.word) return;
     getSongs(songs.mode, songs.word);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -92,13 +96,15 @@ export default function Search() {
       {isLoading ===null? <div>검색어를 입력해주세요</div> : isLoading && 'Loading'}
       {songs.word&&!songs.data.length&&(<div >검색 결과가 없습니다. <br/> 검색어를 확인해주세요</div>)}
       {!isLoading && (
-        <ul style={{ height: '17rem', overflowY: 'auto' }}>
+        <ul style={{ height: '17rem', overflowY: 'auto' }}  onClick={(e) => { setModal(!modal); selectSong(e, setSelected)}}>
           {songs.mode &&
             songs.data
               // .filter((v, i) => i < 10)
               .map((song, index) => (
                 <li key={index}>
-                  {song.title} {song.singer} {song.no}
+                  <span className="title">{song.title}</span>
+                <span className="singer"> {song.singer}</span>
+                <span className="no">{song.no} </span>
                 </li>
               ))}
         </ul>

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Index from '../index';
 import axios from 'axios';
 import styled from 'styled-components';
-import { useRecoilValue } from 'recoil';
-import { brandState, popularState } from '../../state/index';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { brandState, popularState, modalState, SelectedState } from '../../state/index';
+import {selectSong} from '../../src/selectSong';
 
 // TODO: 값이 없을때 안내,  로딩중일때 안내
 const CategoryButton = styled.button`
@@ -22,7 +23,7 @@ const CategoryButton = styled.button`
     transition: 0.5s;
   }
 `;
-export default function NewTop(props) {
+export default function NewTop() {
 
   const [newSongs, setNewSongs] = useState([]);
 
@@ -30,7 +31,10 @@ export default function NewTop(props) {
 
   const brandName= useRecoilValue(brandState);
   const popularSongs= useRecoilValue(popularState);
-
+  const [modal,setModal] = useRecoilState(modalState);
+  const [selected,setSelected] = useRecoilState(SelectedState);
+  
+  
   const fetchNew = async (brand) => {
     try {
       const { data } = await axios.get(
@@ -43,14 +47,17 @@ export default function NewTop(props) {
       console.error(e);
     }
   };
-
+  console.log()
   
   useEffect(() => {
     fetchNew(brandName === 'TJ' ? 'tj' : 'kumyoung');
   }, [brandName]);
-
+  
+  
   return (
-    <Index>
+ 
+
+    <Index >
       <CategoryButton
         onClick={() => {
           category !== 'new' ? setCategory('new') : setCategory('');
@@ -58,11 +65,14 @@ export default function NewTop(props) {
       >
         NEW
       </CategoryButton>
-      <ul style={{ height: category === 'new' && '15rem', overflowY: 'auto' }}>
+      <ul style={{ height: category === 'new' && '15rem', overflowY: 'auto' }}
+      onClick={(e) => { setModal(!modal); selectSong(e, setSelected)}}>
         {category === 'new' &&
           newSongs.map((song, index) => (
             <li key={index}>
-              {song.title} {song.singer} {song.no}
+              <span className="title">{song.title}</span>
+                <span className="singer"> {song.singer}</span>
+                <span className="no">{song.no} </span>
             </li>
           ))}
       </ul>
@@ -75,12 +85,16 @@ export default function NewTop(props) {
       </CategoryButton>
       <ul
         style={{ height: category === 'popular' && '15rem', overflowY: 'auto' }}
-      >
+        onClick={(e) => { setModal(!modal); selectSong(e, setSelected)}}>
+
         {category === 'popular' &&
           popularSongs.map((song, index) => {
             return (
               <li key={index}>
-                {song.title} {song.singer} {song.no}
+                <span className="title">{song.title}</span>
+                <span className="singer"> {song.singer}</span>
+                <span className="no">{song.no} </span>
+              
               </li>
             );
           })}

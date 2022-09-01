@@ -1,11 +1,15 @@
 import React, { useState,useEffect } from 'react';
 import Index from '../index';
-import {  useRecoilValue } from 'recoil';
-import {  popularState } from '../../state';
+import {  useRecoilValue,useRecoilState } from 'recoil';
+import {  popularState, modalState, SelectedState } from '../../state';
+import {selectSong} from '../../src/selectSong';
 
 export default function Recommend() {
   const popularSongs = useRecoilValue(popularState)
- 
+  const [modal,setModal] = useRecoilState(modalState);
+  const [selected,setSelected] = useRecoilState(SelectedState);
+  
+  
   const [number, setNumber] = useState(
     Math.floor(Math.random() * popularSongs.length)
   );
@@ -18,12 +22,14 @@ export default function Recommend() {
       >
         랜덤 인기곡을 뽑아보세요
       </button>
-      <br />
-      제목:{popularSongs[number]?.title}
-      <br />
-      가수: {popularSongs[number]?.singer}
-      <br />
-      번호: {popularSongs[number]?.no}
+      <ul onClick={(e) => { setModal(!modal); selectSong(e, setSelected)}}>
+        <li>
+      <span className="title">{popularSongs[number]?.title}</span>
+      <span className="singer">  {popularSongs[number]?.singer}</span>
+       <span className="no">{popularSongs[number]?.no} </span>
+        </li>
+        </ul>
+ 
     </Index>
   );
 }

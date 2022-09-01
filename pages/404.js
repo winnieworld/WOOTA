@@ -22,7 +22,7 @@ export default function Error404(){
     return <BackgroundImg>
             <h1>404</h1>
             <div>where are you going</div>
-            <div>come and play width us</div>
+            <div>come and play with us</div>
             <Link href={'/'}>
             follow me 
             </Link>
