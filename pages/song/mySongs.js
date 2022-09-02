@@ -30,8 +30,8 @@ export default function MySongs() {
    return <Index>
     
       {deleteModal&&<StyledModal  style={{fontSize:'1rem'}}>정말로 삭제하시겠습니까? <div className="Category"  style={{display: 'flex',marginTop:'1.5rem'}}>
-            <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{addSong("practice"); }} onClick={()=>{ deleteSong(); setDeleteModal(false)}}>예</ModalButton>
-            <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{addSong("practice"); }} onClick={()=>{setDeleteModal(false) }}>아니요</ModalButton>
+            <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{ deleteSong(); setDeleteModal(false)}}>예</ModalButton>
+            <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{setDeleteModal(false) }}>아니요</ModalButton>
         </div></StyledModal>}
 
     {
