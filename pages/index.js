@@ -77,7 +77,7 @@ export default function Index({ children }) {
         </div>
         <Tabs />
         <div style={{ paddingLeft: '1rem'}}>
-        {children||(<div style={{ margin: '10%', fontSize:'1rem',display:'inline-block'}}><div>1. 사이트 상단의 노래방 브랜드를 눌러서 바꿀수 있어요!</div><br/><div>2. 마음에 드는 곡을 눌러보세요! 인기곡 또는 연습곡으로 저장할 수 있어요!</div></div>)}
+        {children||(<div style={{ margin: '10%', fontSize:'1rem',display:'inline-block'}}><div>1. 사이트 상단의 노래방 브랜드를 눌러서 바꿀수 있어요!</div><br/><div>2. 마음에 드는 곡을 눌러보세요! 애창곡 또는 연습곡으로 저장할 수 있어요!</div></div>)}
        
         </div>
       </WootaContainer>

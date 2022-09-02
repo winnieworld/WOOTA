@@ -27,8 +27,8 @@ export default function Modal({setModal}){
     <StyledModal>
         <div style={{fontSize:'1rem', marginTop:'1rem', whiteSpace: 'nowrap'}}>어디에 저장할까요?</div>
         <div className="Category"  style={{display: 'flex',marginTop:'1.5rem'}}>
-            <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{addSong("practice"); }}>연습곡</ModalButton>
             <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{addSong("favorite"); }}>애창곡</ModalButton>
+            <ModalButton as="button" style={{fontSize:'0.8rem'}} onClick={()=>{addSong("practice"); }}>연습곡</ModalButton>
         </div>
         <button onClick={()=>{setModal(false)}} style={{position: 'absolute', right: '0.3rem', top: '0.3rem', backgroundColor:'transparent' , borderColor:'transparent'}}><DeleteButton /></button>
     </StyledModal>)
