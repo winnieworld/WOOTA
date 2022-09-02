@@ -102,7 +102,7 @@ export default function Search() {
               // .filter((v, i) => i < 10)
               .map((song, index) => (
                 <li key={index} style={{display:'flex', margin:'3px'}}>
-                  <span className="no" style={{display:'inline-block' ,width:'5rem'}}>{song.no}</span>
+                  <span className="no" style={{display:'inline-block' ,width:'5rem', lineHeight:'1.2rem'}}>{song.no}</span>
                   <span className="title" style={{display:'inline-block' ,width:'40%', whiteSpace:"nowrap",overflow:'hidden', margin:'0 10px'}}>{song.title}</span>
                   <span className="singer"style={{display:'inline-block', width:'7rem', whiteSpace:"nowrap",overflow:'hidden'}}>{song.singer}</span>
                 </li>

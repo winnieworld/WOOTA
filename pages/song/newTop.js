@@ -63,16 +63,16 @@ export default function NewTop() {
         {category === 'popular'?
           popularSongs.map((song, index) => {
             return (
-              <li key={index} style={{margin:'3px', display: 'flex'}}>
-                   <span className="no" style={{display:'inline-block' ,width:'4rem'}}>{song.no}</span>
+              <li key={index} style={{margin:'3px', display: 'flex', height:'1rem'}}>
+                   <span className="no" style={{display:'inline-block' ,width:'4rem', lineHeight:'1rem'}}>{song.no}</span>
                   <span className="title" style={{display:'inline-block' ,width:'40%', whiteSpace:"nowrap",overflow:'hidden', margin:'0 10px'}}>{song.title}</span>
                   <span className="singer" style={{display:'inline-block', width:'7rem', whiteSpace:"nowrap",overflow:'hidden'}}>{song.singer}</span>
               </li>
             );
           }):
           newSongs.map((song, index) => (
-            <li key={index} style={{margin:'3px', display: 'flex'}}>
-                <span className="no" style={{display:'inline-block' ,width:'4rem'}}>{song.no}</span>
+            <li key={index} style={{margin:'3px', display: 'flex', height:'1rem'}}>
+                <span className="no" style={{display:'inline-block' ,width:'4rem', lineHeight:'1.2rem'}}>{song.no}</span>
                   <span className="title" style={{display:'inline-block' ,width:'40%', whiteSpace:"nowrap",overflow:'hidden', margin:'0 10px'}}>{song.title}</span>
                   <span className="singer" style={{display:'inline-block', width:'7rem', whiteSpace:"nowrap",overflow:'hidden'}}>{song.singer}</span>
             </li>

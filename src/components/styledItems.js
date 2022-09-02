@@ -45,9 +45,9 @@ top:50%;
 left:50%;
 transform: translate3d(-50%, -50%, 0);  
 text-align: center;
-width:30%;
-padding: 2rem;
+padding: 1rem 3rem;
 background: white;
+border-radius: 1rem;
 `
 
 export const ModalButton = styled(Button)`
