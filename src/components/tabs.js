@@ -1,17 +1,15 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import {Button} from './styledItems';
-
+import { Button } from './styledItems';
 
 const StyledTabs = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
-  margin: 20px  auto;
+  margin: 20px auto;
   padding: 0;
 `;
-
 
 const titles = [
   { href: '/song/newTop', text: 'NEW / Top100' },
@@ -30,8 +28,7 @@ export default function Tabs() {
             role={'tab'}
             aria-controls={`section${index + 1}`}
             aria-selected={'false'}
-            tabIndex={'0'}
-          >
+            tabIndex={'0'}>
             <a>{text}</a>
           </Button>
         </Link>

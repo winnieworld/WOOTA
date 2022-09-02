@@ -1,7 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-
-
 const rotate = keyframes` 
 0%{
     background-color: rgba(0,0,0,0)
@@ -39,24 +37,24 @@ export const Button = styled.li`
 `;
 
 export const StyledModal = styled.div`
-z-index: 1000;
-position: absolute;
-top:50%;
-left:50%;
-transform: translate3d(-50%, -50%, 0);  
-text-align: center;
-padding: 1rem 3rem;
-background: white;
-border-radius: 1rem;
-`
+  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  text-align: center;
+  padding: 1rem 3rem;
+  background: white;
+  border-radius: 1rem;
+`;
 
 export const ModalButton = styled(Button)`
-background-color: transparent;
-border-color: transparent;
-&:hover {
-  border-bottom: 1px solid gray;
-}
-`
+  background-color: transparent;
+  border-color: transparent;
+  &:hover {
+    border-bottom: 1px solid gray;
+  }
+`;
 
 export const CategoryButton = styled.button`
   background-color: transparent;
@@ -64,12 +62,10 @@ export const CategoryButton = styled.button`
   border-bottom: 1px solid transparent;
   padding: 1rem;
   text-align: left;
-  background: ${(props) => props.selected && 'rgba(255,255,255,0.5)'};
-  font-size:0.8rem;
+  background: ${props => props.selected && 'rgba(255,255,255,0.5)'};
+  font-size: 0.8rem;
   font-weight: 100;
-  color:#424242;
-
-
+  color: #424242;
 
   &:hover {
     border-bottom: 1px solid white;

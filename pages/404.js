@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 import Link from 'next/link';
-import bgImg from '../public/images/UnicornVectorGradient_12.jpg'
+import bgImg from '../public/images/UnicornVectorGradient_12.jpg';
 
 const BackgroundImg = styled.div`
   background-image: url('${bgImg.src}');
@@ -17,14 +17,13 @@ const BackgroundImg = styled.div`
   background-position: 50% 0;
 `;
 
-
-export default function Error404(){
-    return <BackgroundImg>
-            <h1>404</h1>
-            <div>where are you going</div>
-            <div>come and play with us</div>
-            <Link href={'/'}>
-            follow me 
-            </Link>
-          </BackgroundImg>
+export default function Error404() {
+  return (
+    <BackgroundImg>
+      <h1>404</h1>
+      <div>where are you going</div>
+      <div>come and play with us</div>
+      <Link href={'/'}>follow me</Link>
+    </BackgroundImg>
+  );
 }
