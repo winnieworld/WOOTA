@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Index from '../index';
 import axios from 'axios';
 import styled from 'styled-components';
-import { brandState,modalState, SelectedState } from '../../state/index';
+import { brandState,modalState, selectedState } from '../../state/index';
 import { useRecoilValue,useRecoilState } from 'recoil';
 import {selectSong} from '../../src/selectSong';
 // TODO: 검색결과 페이지로 쪼개기
@@ -32,7 +32,7 @@ export default function Search() {
   const [isLoading, setLoading] = useState(null);
   const [songs, setSongs] = useState({ mode: 'title', data: [], word: '' });
   const [modal,setModal] = useRecoilState(modalState);
-  const [selected,setSelected] = useRecoilState(SelectedState);
+  const [selected,setSelected] = useRecoilState(selectedState);
 
   useEffect(() => {
 
@@ -82,7 +82,7 @@ export default function Search() {
       >
         가수 검색
       </ModeButton>
-      <form
+      <form style={{marginBottom:'10px'}}
         onSubmit={(e) => {
           e.preventDefault();
           if (!e.target.firstElementChild.value.trim()) return;
@@ -96,15 +96,15 @@ export default function Search() {
       {isLoading ===null? <div>검색어를 입력해주세요</div> : isLoading && 'Loading'}
       {songs.word&&!songs.data.length&&(<div >검색 결과가 없습니다. <br/> 검색어를 확인해주세요</div>)}
       {!isLoading && (
-        <ul style={{ height: '17rem', overflowY: 'auto' }}  onClick={(e) => { setModal(!modal); selectSong(e, setSelected)}}>
+        <ul style={{height: '20rem', overflowY: 'auto', listStyle:'none', paddingLeft: '0'}}  onClick={(e) => { setModal(!modal); selectSong(e, setSelected)}}>
           {songs.mode &&
             songs.data
               // .filter((v, i) => i < 10)
               .map((song, index) => (
-                <li key={index}>
-                  <span className="title">{song.title}</span>
-                <span className="singer"> {song.singer}</span>
-                <span className="no">{song.no} </span>
+                <li key={index} style={{display:'flex', margin:'3px'}}>
+                  <span className="no" style={{display:'inline-block' ,width:'5rem'}}>{song.no}</span>
+                  <span className="title" style={{display:'inline-block' ,width:'40%', whiteSpace:"nowrap",overflow:'hidden', margin:'0 10px'}}>{song.title}</span>
+                  <span className="singer"style={{display:'inline-block', width:'7rem', whiteSpace:"nowrap",overflow:'hidden'}}>{song.singer}</span>
                 </li>
               ))}
         </ul>

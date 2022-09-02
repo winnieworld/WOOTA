@@ -8,7 +8,7 @@ const StyledTabs = styled.ul`
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
-  margin: 0 auto;
+  margin: 20px  auto;
   padding: 0;
 `;
 
