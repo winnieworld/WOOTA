@@ -24,6 +24,8 @@ Axios 를 사용하여서 api 요청을 통해 인기곡과 새로운 곡들의 
 async await 으로 데이터를 받아오며 try catch 문을 통해서 error관리를 하고 있습니다.
 <br/>
 또한 데이터를 받아오는 중에는 'Loading' 을 프린트하여 사용자가 로딩중임을 알수 있도록 하였습니다.
+<br/>
+<br>
 <img src="./public/images/testingRecoil.gif" alt="testingRecoil">
 <h2>Let's save your songs</h2>
 당신의 곡정보는 localstage에 저장됩니다.

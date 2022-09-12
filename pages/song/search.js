@@ -84,13 +84,15 @@ export default function Search() {
         <input type="text"></input>
         <button type="submit"> 확인</button>
       </form>
-      {isLoading === null ? <div>검색어를 입력해주세요</div> : isLoading && 'Loading'}
-      {songs.word && !songs.data.length && (
+      {!songs.word ? (
+        <div>검색어를 입력해주세요</div>
+      ) : isLoading ? (
+        'Loading'
+      ) : !songs.data.length ? (
         <div>
           검색 결과가 없습니다. <br /> 검색어를 확인해주세요
         </div>
-      )}
-      {!isLoading && (
+      ) : (
         <ul
           style={{ height: '20rem', overflowY: 'auto', listStyle: 'none', paddingLeft: '0' }}
           onClick={e => {
