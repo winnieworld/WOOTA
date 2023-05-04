@@ -1,0 +1,5 @@
+myNextApplication:
+  component: '@sls-next/serverless-component@MY_VERSION'
+  inputs:
+    bucketRegion: 'MY_REGION'
+    bucketName: 'MY_BUCKET_NAME'

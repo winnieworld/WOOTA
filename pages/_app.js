@@ -1,5 +1,5 @@
 import { RecoilRoot } from 'recoil';
-
+import '../src/style.css';
 function MyApp({ Component, pageProps }) {
   return (
     <RecoilRoot>
