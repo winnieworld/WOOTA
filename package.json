@@ -19,6 +19,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recoil": "^0.7.5",
+    "serverless": "^3.30.1",
     "styled-components": "^5.3.5",
     "use-dexie": "^1.2.4"
   },
