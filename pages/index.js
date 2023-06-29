@@ -54,9 +54,15 @@ export default function Index({ children }) {
   }, [setPopularSongs, brandName]);
 
   return (
-    <BG>
-      <img src={bgImg.src} alt="" style={{ width: '100%', opercity: '0' }} />
-      {/* <Head>
+    <>
+      <Head>
+        <title>봄결 🎀 토롱 여행일지</title>
+        <meta name="description" content="속초 여행일지"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <BG>
+        <img src={bgImg.src} alt="" style={{ width: '100%', opercity: '0' }} />
+        {/* <Head>
         <title>WooTa | 당신의 노래방 메이트</title>
         <meta name="description" content="WooTa 홈 입니다"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,6 +92,7 @@ export default function Index({ children }) {
           )}
         </div>
       </WootaContainer> */}
-    </BG>
+      </BG>
+    </>
   );
 }
